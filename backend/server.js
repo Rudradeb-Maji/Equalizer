@@ -3,13 +3,15 @@ const { Innertube, UniversalCache } = require("youtubei.js");
 
 const cors = require("cors");
 const { YTDlpWrap } = require("yt-dlp-wrap").default; // ✅ Named import, with correct casing
-const ytdlp = new YTDlpWrap('./yt-dlp').default();
+const ytdlp = new YTDlpWrap("./yt-dlp");
 const PORT = 5000;
 const { Client } = require("youtubei.js");
-app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "DELETE"]
-}));
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "DELETE"],
+  })
+);
 // const youtube = new Client().default();
 function extractVideoId(url) {
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -20,7 +22,6 @@ function extractVideoId(url) {
 app.get("/api/audio", async (req, res) => {
   const videoUrl = req.query.url;
   if (!videoUrl) return res.status(400).send("Missing YouTube URL");
-
 
   res.setHeader("Content-Type", "audio/mpeg");
   res.setHeader("Transfer-Encoding", "chunked");
