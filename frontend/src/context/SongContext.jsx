@@ -52,7 +52,8 @@ export const SongProvider = ({ children }) => {
     // }
     fetchVideoInfo(link);
     const encodedURL = encodeURIComponent(link);
-    setSongURL(`http://localhost:5000/api/audio?url=${encodedURL}`);
+    // setSongURL(`http://localhost:5000/api/audio?url=${encodedURL}`);
+    setSongURL(`https://equalizer-backend.onrender.com/api/audio?url=${encodedURL}`);
   };
   const fetchVideoInfo = async (link) => {
     // e.preventDefault();
