@@ -2,8 +2,7 @@ const express = require("express");
 const { Innertube, UniversalCache } = require("youtubei.js");
 
 const cors = require("cors");
-const YtDlpWrap = require("yt-dlp-wrap");
-const { YTDlpWrap } = require("yt-dlp-wrap"); // ✅ Named import, with correct casing
+const { YTDlpWrap } = require("yt-dlp-wrap").default; // ✅ Named import, with correct casing
 const ytdlp = new YTDlpWrap('./yt-dlp');
 const PORT = 5000;
 const { Client } = require("youtubei.js");
