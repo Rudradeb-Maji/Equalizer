@@ -1,13 +1,15 @@
 const express = require("express");
-const { Innertube, UniversalCache } =require ("youtubei.js");
-
+const { Innertube, UniversalCache } = require("youtubei.js");
 
 const cors = require("cors");
 const YtDlpWrap = require("yt-dlp-wrap");
 const app = express();
 const PORT = 5000;
 const { Client } = require("youtubei.js");
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "DELETE"]
+}));
 // const youtube = new Client().default();
 function extractVideoId(url) {
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -65,10 +67,10 @@ app.get("/api/video-info", async (req, res) => {
       client: "WEB", // InnerTube client to use.
       parse: true, // tells YouTube.js to parse the response (not sent to InnerTube).
     });
-console.log(videoInfo.video_details.thumbnail);
+    console.log(videoInfo.video_details.thumbnail);
 
     const video = {
-      title:videoInfo.video_details.title,
+      title: videoInfo.video_details.title,
       thumbnail: videoInfo.video_details.thumbnail[0].url,
     };
     res.send(video);
