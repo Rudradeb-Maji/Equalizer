@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+input[type="range"] {
+    -webkit-appearance: slider-vertical;
+    writing-mode: bt-lr;
+}
+
+/* The slider itself */
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 100; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance:none; /* Override default look */
+  appearance: none;
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  /* Slider handle height */
+  background: #00ffa2; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
