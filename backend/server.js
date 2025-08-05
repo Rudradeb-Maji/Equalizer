@@ -3,10 +3,10 @@ const { Innertube, UniversalCache } = require("youtubei.js");
 
 const cors = require("cors");
 const YtDlpWrap = require("yt-dlp-wrap");
-const app = express();
+const { YTDlpWrap } = require("yt-dlp-wrap"); // ✅ Named import, with correct casing
+const ytdlp = new YTDlpWrap('./yt-dlp');
 const PORT = 5000;
 const { Client } = require("youtubei.js");
-const ytDlpWrap = new YtDlpWrap('./yt-dlp') // ✅ Fix here
 app.use(cors({
   origin: "*",
   methods: ["GET", "POST", "DELETE"]
@@ -27,7 +27,7 @@ app.get("/api/audio", async (req, res) => {
   res.setHeader("Transfer-Encoding", "chunked");
 
   try {
-    const stream = ytDlpWrap.execStream([
+    const stream = ytdlp.execStream([
       videoUrl,
       "-f",
       "bestaudio",
