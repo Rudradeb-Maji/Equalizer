@@ -21,7 +21,7 @@ app.get("/api/audio", async (req, res) => {
   const videoUrl = req.query.url;
   if (!videoUrl) return res.status(400).send("Missing YouTube URL");
 
-  const ytDlpWrap = new YtDlpWrap.default(); // ✅ Fix here
+  const ytDlpWrap = new YtDlpWrap('./yt-dlp').default(); // ✅ Fix here
 
   res.setHeader("Content-Type", "audio/mpeg");
   res.setHeader("Transfer-Encoding", "chunked");
