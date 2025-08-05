@@ -1,6 +1,6 @@
 const express = require("express");
 const { Innertube, UniversalCache } = require("youtubei.js");
-
+const app = express();
 const cors = require("cors");
 const YTDlpWrap = require("yt-dlp-wrap").default; // ✅ Named import, with correct casing
 const ytdlp = new YTDlpWrap("path/to/yt-dlp/binary");
