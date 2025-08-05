@@ -6,6 +6,7 @@ const YtDlpWrap = require("yt-dlp-wrap");
 const app = express();
 const PORT = 5000;
 const { Client } = require("youtubei.js");
+const ytDlpWrap = new YtDlpWrap('./yt-dlp') // ✅ Fix here
 app.use(cors({
   origin: "*",
   methods: ["GET", "POST", "DELETE"]
@@ -21,7 +22,6 @@ app.get("/api/audio", async (req, res) => {
   const videoUrl = req.query.url;
   if (!videoUrl) return res.status(400).send("Missing YouTube URL");
 
-  const ytDlpWrap = new YtDlpWrap('./yt-dlp').default(); // ✅ Fix here
 
   res.setHeader("Content-Type", "audio/mpeg");
   res.setHeader("Transfer-Encoding", "chunked");
