@@ -32,7 +32,6 @@ app.get("/api/audio", async (req, res) => {
       "cookies.txt",
       "-f",
       "best",
-      "-f",
       "bestaudio",
       "-o",
       "-",
