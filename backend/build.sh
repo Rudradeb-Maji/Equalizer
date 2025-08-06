@@ -6,4 +6,4 @@ curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o yt-d
 # Make it executable
 chmod +x yt-dlp
 
-curl -o cookies.txt https://www.dropbox.com/scl/fi/vjrmxhh1807iw9dt6mz83/cookies.txt?rlkey=2sclec7ytg1g6s77pa8m4u4sn&st=cbyg9gz3&dl=0
+curl -o cookies.txt https://www.dropbox.com/scl/fi/nrevfgfzxscfmajjvg8g3/cookies.txt?rlkey=tt2jghsjhugkcm9c6an1m8nuj&st=uksfh186&dl=0

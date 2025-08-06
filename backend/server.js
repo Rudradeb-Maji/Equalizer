@@ -30,8 +30,9 @@ app.get("/api/audio", async (req, res) => {
     const stream = ytdlp.execStream([
       "--cookies",
       "cookies.txt",
+      // "-f",
+      // "best",
       "-f",
-      "best",
       "bestaudio",
       "-o",
       "-",
