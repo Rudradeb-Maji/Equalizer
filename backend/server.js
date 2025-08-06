@@ -32,7 +32,6 @@ app.get("/api/audio", async (req, res) => {
       "cookies.txt",
       "-f",
       "best",
-      videoUrl,
       "-f",
       "bestaudio",
       "-o",
@@ -42,13 +41,14 @@ app.get("/api/audio", async (req, res) => {
       "--extract-audio",
       "--audio-format",
       "mp3",
+      videoUrl,
     ]);
 
     stream.pipe(res);
 
     stream.on("error", (err) => {
       console.error("yt-dlp error:", err);
-      res.status(500).send("Streaming failed");
+      res.destroy();
     });
   } catch (err) {
     console.error(err);
